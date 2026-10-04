@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Bappherh Jr — Web Developer</title>
+  <meta name="description" content="Bappherh Jr is a 15-year-old web developer from Northern Nigeria building modern, responsive websites.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #080808;
+      --card: #101010;
+      --card2: #141414;
+      --text: #f5f5f5;
+      --muted: #999;
+      --border: #252525;
+      --accent: #ffffff;
+      --radius: 22px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    /* NAVBAR */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(8,8,8,.75);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+
+    .nav-inner {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-weight: 900;
+      letter-spacing: -1px;
+      font-size: 20px;
+    }
+
+    .logo span {
+      color: #777;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    .nav-links a {
+      transition: .25s;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .nav-button {
+      border: 1px solid var(--border);
+      padding: 9px 15px;
+      border-radius: 999px;
+      font-size: 13px;
+      transition: .25s;
+    }
+
+    .nav-button:hover {
+      background: white;
+      color: black;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 90px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 450px;
+      height: 450px;
+      background: rgba(255,255,255,.045);
+      filter: blur(100px);
+      border-radius: 50%;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.025);
+      padding: 8px 13px;
+      border-radius: 999px;
+      color: #bbb;
+      font-size: 13px;
+      margin-bottom: 28px;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 12px #fff;
+    }
+
+    h1 {
+      font-size: clamp(52px, 9vw, 105px);
+      line-height: .92;
+      letter-spacing: -6px;
+      max-width: 950px;
+    }
+
+    h1 span {
+      color: #777;
+    }
+
+    .hero-description {
+      max-width: 620px;
+      margin-top: 30px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 34px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 13px 21px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      transition: .25s;
+    }
+
+    .btn-primary {
+      background: white;
+      color: black;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-secondary {
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: #151515;
+    }
+
+    /* STATS */
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-top: 90px;
+    }
+
+    .stat {
+      padding: 28px 20px;
+      border-right: 1px solid var(--border);
+    }
+
+    .stat:last-child {
+      border-right: none;
+    }
+
+    .stat-number {
+      font-size: 30px;
+      font-weight: 800;
+    }
+
+    .stat-label {
+      color: #777;
+      font-size: 13px;
+      margin-top: 3px;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 110px 0;
+    }
+
+    .section-label {
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: #777;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-size: clamp(35px, 6vw, 65px);
+      letter-spacing: -3px;
+      line-height: 1;
+      max-width: 700px;
+    }
+
+    .section-text {
+      color: var(--muted);
+      max-width: 650px;
+      margin-top: 20px;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about-card {
+      border: 1px solid var(--border);
+      background: linear-gradient(145deg, #111, #090909);
+      border-radius: var(--radius);
+      padding: 35px;
+    }
+
+    .about-card h3 {
+      font-size: 25px;
+      margin-bottom: 14px;
+    }
+
+    .about-card p {
+      color: #999;
+    }
+
+    .achievement {
+      margin-top: 25px;
+      padding: 18px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: #0d0d0d;
+    }
+
+    .achievement small {
+      color: #777;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .achievement strong {
+      display: block;
+      margin-top: 5px;
+    }
+
+    /* SERVICES */
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 45px;
+    }
+
+    .service {
+      border: 1px solid var(--border);
+      background: var(--card);
+      padding: 28px;
+      border-radius: var(--radius);
+      transition: .3s;
+    }
+
+    .service:hover {
+      transform: translateY(-6px);
+      border-color: #444;
+    }
+
+    .service-number {
+      color: #555;
+      font-size: 13px;
+    }
+
+    .service h3 {
+      margin-top: 40px;
+      font-size: 22px;
+    }
+
+    .service p {
+      margin-top: 10px;
+      color: #888;
+      font-size: 14px;
+    }
+
+    /* PROJECTS */
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 45px;
+    }
+
+    .project {
+      min-height: 350px;
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,.08), transparent 30%),
+        #101010;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: .3s;
+    }
+
+    .project:hover {
+      transform: translateY(-6px);
+      border-color: #444;
+    }
+
+    .project-tag {
+      color: #777;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .project h3 {
+      font-size: 32px;
+      letter-spacing: -1px;
+    }
+
+    .project p {
+      color: #888;
+      margin-top: 8px;
+      max-width: 450px;
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    /* PROCESS */
+
+    .process {
+      margin-top: 45px;
+      border-top: 1px solid var(--border);
+    }
+
+    .process-item {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      padding: 30px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .process-number {
+      color: #555;
+      font-weight: 700;
+    }
+
+    .process-item h3 {
+      font-size: 24px;
+    }
+
+    .process-item p {
+      color: #888;
+      margin-top: 5px;
+      max-width: 600px;
+    }
+
+    /* CONTACT */
+
+    .contact-box {
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 70px 40px;
+      text-align: center;
+      background:
+        radial-gradient(circle at center, rgba(255,255,255,.07), transparent 45%),
+        #0d0d0d;
+    }
+
+    .contact-box h2 {
+      font-size: clamp(40px, 7vw, 75px);
+      letter-spacing: -4px;
+      line-height: 1;
+    }
+
+    .contact-box p {
+      color: #888;
+      max-width: 500px;
+      margin: 20px auto 30px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 30px 0;
+      color: #666;
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 750px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      h1 {
+        letter-spacing: -3px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .stat {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .stat:last-child {
+        border-bottom: none;
+      }
+
+      .about-grid,
+      .projects,
+      .services {
+        grid-template-columns: 1fr;
+      }
+
+      .about-grid {
+        gap: 30px;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      .process-item {
+        grid-template-columns: 60px 1fr;
+      }
+
+      .contact-box {
+        padding: 50px 20px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+    <div class="container nav-inner">
+
+      <a href="#" class="logo">
+        BAPPHERH<span>.DEV</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <a href="#contact" class="nav-button">
+        Let's talk
+      </a>
+
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+
+  <main>
+
+    <section class="hero">
+
+      <div class="container hero-content">
+
+        <div class="status">
+          <span class="dot"></span>
+          Available for selected projects
+        </div>
+
+        <h1>
+          I build websites
+          <span>that feel alive.</span>
+        </h1>
+
+        <p class="hero-description">
+          I'm Bappherh Jr, a 15-year-old web developer from Northern Nigeria.
+          I create modern, responsive websites for businesses, brands and
+          ambitious ideas.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">
+            View my work →
+          </a>
+
+          <a href="#contact" class="btn btn-secondary">
+            Start a project
+          </a>
+        </div>
+
+        <div class="stats">
+
+          <div class="stat">
+            <div class="stat-number">15</div>
+            <div class="stat-label">Years old</div>
+          </div>
+
+          <div class="stat">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Frontend focused</div>
+          </div>
+
+          <div class="stat">
+            <div class="stat-number">∞</div>
+            <div class="stat-label">Ideas to build</div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+      <div class="container">
+
+        <div class="about-grid">
+
+          <div>
+            <div class="section-label">01 / About</div>
+
+            <h2 class="section-title">
+              Young developer.
+              Serious about the craft.
+            </h2>
+
+            <p class="section-text">
+              I started building websites since I'm 13 because I wanted to turn ideas
+              into things people could actually use.
+              Today, I focus on clean interfaces, responsive layouts,
+              smooth interactions and websites that help businesses
+              look more professional online.
+            </p>
+          </div>
+
+          <div class="about-card">
+
+            <h3>15-year-old web developer</h3>
+
+            <p>
+              Based in Northern Nigeria (specifically Kano State), building with HTML, CSS and
+              JavaScript while constantly learning, experimenting and
+              shipping new projects.
+            </p>
+
+            <div class="achievement">
+              <small>Recognition</small>
+              <strong>
+               One of the  Youngest web developer from Northern Nigeria
+              </strong>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SERVICES -->
+
+    <section id="services">
+
+      <div class="container">
+
+        <div class="section-label">02 / Services</div>
+
+        <h2 class="section-title">
+          What I can build for you.
+        </h2>
+
+        <div class="services">
+
+          <div class="service">
+            <div class="service-number">01</div>
+            <h3>Business Websites</h3>
+            <p>
+              Professional websites designed to give businesses
+              a stronger online presence.
+            </p>
+          </div>
+
+          <div class="service">
+            <div class="service-number">02</div>
+            <h3>Landing Pages</h3>
+            <p>
+              Focused pages designed around a product, service,
+              campaign or specific business goal.
+            </p>
+          </div>
+
+          <div class="service">
+            <div class="service-number">03</div>
+            <h3>Frontend Development</h3>
+            <p>
+              Responsive interfaces built with clean HTML, CSS
+              and JavaScript.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+
+    <section id="projects">
+
+      <div class="container">
+
+        <div class="section-label">03 / Selected work</div>
+
+        <h2 class="section-title">
+          Things I've built.
+        </h2>
+
+        <div class="projects">
+
+          <article class="project">
+
+            <div>
+              <div class="project-tag">
+                Business website
+              </div>
+
+              <h3>Jaylan Thobe</h3>
+
+              <p>
+                A modern fashion website concept for a thobe brand,
+                designed to showcase products and make it easy for
+                customers to contact the business.
+              </p>
+            </div>
+
+            <a href="#" class="project-link">
+              View project ↗
+            </a>
+
+          </article>
+
+
+          <article class="project">
+
+            <div>
+              <div class="project-tag">
+                Restaurant / Café
+              </div>
+
+              <h3>Zarah Cafe</h3>
+
+              <p>
+                A digital menu and ordering experience designed
+                for a modern café and bakery.
+              </p>
+            </div>
+
+            <a href="#" class="project-link">
+              View project ↗
+            </a>
+
+          </article>
+
+
+          <article class="project">
+
+            <div>
+              <div class="project-tag">
+                Education
+              </div>
+
+              <h3>School Portal</h3>
+
+              <p>
+                A frontend concept for a school portal focused on
+                making important student information easier to access.
+              </p>
+            </div>
+
+            <a href="#" class="project-link">
+              View project ↗
+            </a>
+
+          </article>
+
+
+          <article class="project">
+
+            <div>
+              <div class="project-tag">
+                Experimental
+              </div>
+
+              <h3>More coming.</h3>
+
+              <p>
+                I'm constantly experimenting with new interfaces,
+                products and ideas.
+              </p>
+            </div>
+
+            <a href="#contact" class="project-link">
+              Work with me →
+            </a>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROCESS -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-label">04 / Process</div>
+
+        <h2 class="section-title">
+          Simple process.
+          Serious results.
+        </h2>
+
+        <div class="process">
+
+          <div class="process-item">
+            <div class="process-number">01</div>
+            <div>
+              <h3>Understand</h3>
+              <p>
+                We figure out what you need, who the website is for
+                and what you want visitors to do.
+              </p>
+            </div>
+          </div>
+
+          <div class="process-item">
+            <div class="process-number">02</div>
+            <div>
+              <h3>Design</h3>
+              <p>
+                I turn the idea into a clean, responsive interface
+                with a clear visual direction.
+              </p>
+            </div>
+          </div>
+
+          <div class="process-item">
+            <div class="process-number">03</div>
+            <div>
+              <h3>Build</h3>
+              <p>
+                The design becomes a working website using modern
+                frontend technologies.
+              </p>
+            </div>
+          </div>
+
+          <div class="process-item">
+            <div class="process-number">04</div>
+            <div>
+              <h3>Launch</h3>
+              <p>
+                After testing everything across different screen sizes,
+                the website is ready to go live.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+      <div class="container">
+
+        <div class="contact-box">
+
+          <h2>
+            Have an idea?
+            Let's build it.
+          </h2>
+
+          <p>
+            Looking for a modern website for your business,
+            brand or project? Let's talk.
+          </p>
+
+          <div class="hero-buttons" style="justify-content:center;">
+
+            <a
+              href="https://wa.me/2349079752628"
+              class="btn btn-primary"
+              target="_blank"
+            >
+              WhatsApp me →
+            </a>
+
+            <a
+              href="mailto:bappherhjr@proton.me"
+              class="btn btn-secondary"
+            >
+              Send an email
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container footer-inner">
+
+      <div>
+        © 2026 Bappherh Jr. All rights reserved.
+      </div>
+
+      <div>
+        Northern Nigeria · Web Developer
+      </div>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
