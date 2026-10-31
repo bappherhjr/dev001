@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090d18">
+<meta name="description" content="DeadlineX — Know what's next. Stay ahead.">
+<title>DeadlineX</title>
+<style>
+:root{color-scheme:dark;--bg:#090d18;--panel:rgba(255,255,255,.075);--panel2:rgba(255,255,255,.11);--line:rgba(255,255,255,.13);--text:#f4f6ff;--muted:#9ca8c0;--accent:#8b9cff;--cyan:#6de2df;--danger:#ff788b;--shadow:0 20px 60px #0007}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 12% 0%,#35458a55,transparent 38%),radial-gradient(ellipse at 100% 25%,#1a9d9b26,transparent 35%),linear-gradient(145deg,#090d18,#10172a 55%,#090d18);color:var(--text);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+button,input,select,textarea{font:inherit}button{cursor:pointer;color:inherit}.app{max-width:1160px;margin:auto;padding:26px 22px 90px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:30px}.brand{display:flex;align-items:center;gap:12px}.logo{width:43px;height:43px;border-radius:15px;background:linear-gradient(140deg,#a4b0ff,#6ce0d7);display:grid;place-items:center;color:#10172a;font-weight:900;font-size:22px;box-shadow:0 8px 28px #718bff55}.brand h1{font-size:20px;letter-spacing:-.7px;margin:0}.brand small{display:block;color:var(--muted);font-size:11px;letter-spacing:1.8px;text-transform:uppercase}.top-actions{display:flex;gap:9px}.icon-btn,.secondary,.primary,.filter{border:1px solid var(--line);background:var(--panel);border-radius:13px;padding:10px 14px;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}.icon-btn{width:42px;height:42px;padding:0;font-size:17px}.primary{background:linear-gradient(130deg,#9aa8ff,#67dcd5);color:#10172a;border:0;font-weight:750;box-shadow:0 9px 25px #718bff33}.hero{display:flex;justify-content:space-between;align-items:end;gap:20px;margin:12px 0 23px}.eyebrow{color:var(--cyan);font-size:11px;text-transform:uppercase;letter-spacing:2px;font-weight:700}.hero h2{font-size:clamp(28px,5vw,43px);letter-spacing:-1.8px;line-height:1.1;margin:8px 0}.hero p{margin:8px 0 0;color:var(--muted)}.date{color:var(--muted);font-size:13px;text-align:right}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-bottom:22px}.glass{background:linear-gradient(145deg,rgba(255,255,255,.105),rgba(255,255,255,.035));border:1px solid var(--line);box-shadow:var(--shadow);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}.stat{padding:18px;border-radius:19px;min-height:112px}.stat-label{color:var(--muted);font-size:12px}.stat-value{font-size:30px;font-weight:750;letter-spacing:-1px;margin-top:7px}.stat-dot{float:right;width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 15px currentColor}.layout{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(260px,.8fr);gap:17px}.section{border-radius:22px;padding:20px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:17px}.section-head h3{font-size:17px;margin:0}.muted{color:var(--muted)}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:15px}.search{flex:1;min-width:150px}.search input{width:100%;border:1px solid var(--line);background:#080d19aa;border-radius:12px;padding:10px 12px;color:var(--text);outline:none}.filter{padding:9px 11px;color:var(--muted)}.filter.active{color:var(--text);border-color:#9aa8ff99;background:#899cff22}.deadline-list{display:grid;gap:10px}.deadline{border:1px solid var(--line);background:rgba(8,13,25,.42);border-radius:16px;padding:14px;display:grid;grid-template-columns:5px 1fr auto;gap:13px;align-items:center}.deadline.done{opacity:.55}.deadline.done .task-title{text-decoration:line-through}.priority{border-radius:8px;background:var(--accent)}.priority.high{background:var(--danger)}.priority.low{background:var(--cyan)}.task-title{font-weight:700;margin:0 0 4px}.task-meta{font-size:12px;color:var(--muted);display:flex;gap:9px;flex-wrap:wrap}.countdown{font-size:12px;font-weight:700;color:var(--cyan);text-align:right;white-space:nowrap}.countdown.late{color:var(--danger)}.row-actions{display:flex;gap:5px;margin-top:8px}.mini{border:1px solid var(--line);background:var(--panel);border-radius:8px;padding:5px 8px;font-size:11px}.side-stack{display:grid;gap:17px;align-content:start}.progress-card{padding:20px;border-radius:22px}.progress-ring{width:124px;height:124px;border-radius:50%;margin:18px auto;display:grid;place-items:center;background:conic-gradient(var(--cyan) var(--progress,0%),#ffffff15 0);position:relative}.progress-ring:before{content:"";position:absolute;inset:9px;border-radius:50%;background:#111a2b}.progress-ring strong{position:relative;font-size:25px}.progress-note{text-align:center;color:var(--muted);font-size:12px}.tip{padding:18px;border-radius:20px}.tip p{margin:7px 0 0;color:var(--muted);font-size:13px}.empty{text-align:center;padding:35px 10px;color:var(--muted)}.empty b{display:block;color:var(--text);font-size:15px;margin-bottom:5px}
+dialog{width:min(520px,calc(100% - 28px));border:1px solid var(--line);border-radius:23px;background:rgba(17,25,43,.96);color:var(--text);padding:0;box-shadow:0 30px 100px #000b;backdrop-filter:blur(24px)}dialog::backdrop{background:#030611bb;backdrop-filter:blur(5px)}.modal{padding:23px}.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:17px}.modal-head h3{margin:0}.close{border:0;background:transparent;color:var(--muted);font-size:23px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:grid;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:12px;color:var(--muted)}.field input,.field select,.field textarea{width:100%;padding:11px 12px;border-radius:11px;border:1px solid var(--line);background:#080d19;color:var(--text);outline:none}.field textarea{resize:vertical;min-height:75px}.modal-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:18px}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#e8f0ff;color:#10172a;padding:11px 17px;border-radius:12px;font-weight:700;transition:.25s;z-index:5}.toast.show{opacity:1;transform:translate(-50%,0)}.footer{text-align:center;color:#73809a;font-size:11px;margin-top:27px;letter-spacing:.4px}
+@media(max-width:760px){.app{padding:18px 14px 80px}.stats{grid-template-columns:repeat(2,1fr);gap:10px}.stat{min-height:98px;padding:15px}.stat-value{font-size:26px}.layout{grid-template-columns:1fr}.hero{align-items:start}.date{display:none}.section{padding:15px}.side-stack{grid-template-columns:1fr 1fr}.progress-card,.tip{padding:15px}.progress-ring{width:100px;height:100px}}@media(max-width:420px){.side-stack{grid-template-columns:1fr}.brand h1{font-size:18px}.hero h2{font-size:30px}.deadline{grid-template-columns:4px 1fr}.countdown{grid-column:2;text-align:left}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.top-actions .secondary{display:none}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="topbar">
+  <div class="brand"><div class="logo">D</div><div><h1>DeadlineX</h1><small>Know what's next</small></div></div>
+  <div class="top-actions"><button class="secondary" id="exportBtn">Export</button><button class="icon-btn" id="themeBtn" aria-label="Toggle theme">◐</button><button class="primary" id="addBtn">＋ Add deadline</button></div>
+</header>
+<section class="hero"><div><div class="eyebrow">Your time. Your priorities.</div><h2>Stay ahead of<br>every deadline.</h2><p>One clear view of everything you need to get done.</p></div><div class="date" id="todayDate"></div></section>
+<section class="stats">
+ <div class="stat glass"><span class="stat-dot"></span><div class="stat-label">Total deadlines</div><div class="stat-value" id="totalStat">0</div></div>
+ <div class="stat glass"><span class="stat-dot" style="background:var(--cyan)"></span><div class="stat-label">Completed</div><div class="stat-value" id="doneStat">0</div></div>
+ <div class="stat glass"><span class="stat-dot" style="background:#ffc978"></span><div class="stat-label">Upcoming</div><div class="stat-value" id="upcomingStat">0</div></div>
+ <div class="stat glass"><span class="stat-dot" style="background:var(--danger)"></span><div class="stat-label">Overdue</div><div class="stat-value" id="overdueStat">0</div></div>
+</section>
+<main class="layout">
+ <section class="section glass">
+  <div class="section-head"><h3>Your deadlines</h3><span class="muted" id="resultCount">0 items</span></div>
+  <div class="toolbar"><div class="search"><input id="searchInput" type="search" placeholder="Search deadlines..."></div><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="active">Active</button><button class="filter" data-filter="done">Done</button></div>
+  <div class="deadline-list" id="deadlineList"></div>
+ </section>
+ <aside class="side-stack">
+  <section class="progress-card glass"><div class="section-head"><h3>Completion rate</h3></div><div class="progress-ring" id="progressRing"><strong id="progressText">0%</strong></div><div class="progress-note" id="progressNote">Your progress starts here.</div></section>
+  <section class="tip glass"><div class="eyebrow">A small reminder</div><h3 style="margin:7px 0 0">Make time count.</h3><p>Break large tasks into smaller steps. Start with the next action, not the whole mountain.</p></section>
+ </aside>
+</main>
+<div class="footer">DEADLINEX 2.0 · YOUR DEADLINES STAY ON THIS DEVICE</div>
+</div>
+<dialog id="deadlineDialog"><form class="modal" id="deadlineForm">
+ <div class="modal-head"><h3 id="modalTitle">Add a deadline</h3><button type="button" class="close" id="closeModal">×</button></div>
+ <input type="hidden" id="editId">
+ <div class="form-grid">
+  <div class="field full"><label for="title">Task title *</label><input id="title" maxlength="90" required placeholder="e.g. Submit biology assignment"></div>
+  <div class="field"><label for="dueDate">Due date *</label><input id="dueDate" type="date" required></div>
+  <div class="field"><label for="dueTime">Due time</label><input id="dueTime" type="time" value="23:59"></div>
+  <div class="field"><label for="category">Category</label><select id="category"><option>School</option><option>Project</option><option>Personal</option><option>Event</option><option>Other</option></select></div>
+  <div class="field"><label for="priority">Priority</label><select id="priority"><option value="medium">Medium</option><option value="high">High</option><option value="low">Low</option></select></div>
+  <div class="field full"><label for="notes">Notes (optional)</label><textarea id="notes" maxlength="500" placeholder="Add useful details..."></textarea></div>
+ </div>
+ <div class="modal-actions"><button type="button" class="secondary" id="cancelBtn">Cancel</button><button class="primary" type="submit">Save deadline</button></div>
+</form></dialog>
+<div class="toast" id="toast"></div>
+<script>
+(()=> {
+ const $=id=>document.getElementById(id), KEY='deadlinex_v2_items';
+ let items=[]; try{items=JSON.parse(localStorage.getItem(KEY)||'[]')}catch{items=[]}
+ let filter='all';
+ const save=()=>localStorage.setItem(KEY,JSON.stringify(items));
+ const dueOf=x=>new Date(`${x.date}T${x.time||'23:59'}:00`);
+ const escapeHTML=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const toast=msg=>{ $('toast').textContent=msg;$('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),2200)};
+ const remaining=x=>{const ms=dueOf(x)-Date.now();if(x.done)return 'Completed';if(ms<0)return 'Overdue';const d=Math.floor(ms/86400000),h=Math.floor(ms%86400000/3600000),m=Math.floor(ms%3600000/60000);if(d>0)return `${d}d ${h}h left`;if(h>0)return `${h}h ${m}m left`;return `${m}m left`};
+ const render=()=>{
+  const now=Date.now(), active=items.filter(x=>!x.done), done=items.filter(x=>x.done), overdue=active.filter(x=>dueOf(x)<now);
+  $('totalStat').textContent=items.length;$('doneStat').textContent=done.length;$('upcomingStat').textContent=active.length-overdue.length;$('overdueStat').textContent=overdue.length;
+  const pct=items.length?Math.round(done.length/items.length*100):0;$('progressRing').style.setProperty('--progress',pct+'%');$('progressText').textContent=pct+'%';$('progressNote').textContent=items.length?`${done.length} of ${items.length} deadlines completed.`:'Your progress starts here.';
+  const q=$('searchInput').value.toLowerCase();
+  let shown=items.filter(x=>(filter==='all'||(filter==='done'?x.done:!x.done))&&(`${x.title} ${x.category} ${x.notes||''}`).toLowerCase().includes(q));
+  shown.sort((a,b)=>a.done-b.done||dueOf(a)-dueOf(b));$('resultCount').textContent=`${shown.length} item${shown.length===1?'':'s'}`;
+  $('deadlineList').innerHTML=shown.length?shown.map(x=>`<article class="deadline ${x.done?'done':''}"><div class="priority ${x.priority}"></div><div><p class="task-title">${escapeHTML(x.title)}</p><div class="task-meta"><span>${escapeHTML(x.category)}</span><span>${new Date(x.date+'T00:00:00').toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'})} · ${escapeHTML(x.time||'23:59')}</span><span>${escapeHTML(x.priority)} priority</span></div>${x.notes?`<div class="task-meta" style="margin-top:5px">${escapeHTML(x.notes)}</div>`:''}<div class="row-actions"><button class="mini" data-action="toggle" data-id="${x.id}">${x.done?'Restore':'Complete'}</button><button class="mini" data-action="edit" data-id="${x.id}">Edit</button><button class="mini" data-action="delete" data-id="${x.id}">Delete</button></div></div><div class="countdown ${!x.done&&dueOf(x)<now?'late':''}">${remaining(x)}</div></article>`).join(''):'<div class="empty"><b>No deadlines found</b>Add a deadline or change your search/filter.</div>';
+ };
+ const openModal=x=>{
+  $('deadlineForm').reset();$('editId').value=x?.id||'';$('modalTitle').textContent=x?'Edit deadline':'Add a deadline';
+  $('title').value=x?.title||'';$('dueDate').value=x?.date||new Date().toISOString().slice(0,10);$('dueTime').value=x?.time||'23:59';$('category').value=x?.category||'School';$('priority').value=x?.priority||'medium';$('notes').value=x?.notes||'';
+  $('deadlineDialog').showModal();
+ };
+ $('addBtn').onclick=()=>openModal();$('closeModal').onclick=$('cancelBtn').onclick=()=>$('deadlineDialog').close();
+ $('deadlineForm').onsubmit=e=>{e.preventDefault();const id=$('editId').value;const obj={id:id||String(Date.now()),title:$('title').value.trim(),date:$('dueDate').value,time:$('dueTime').value||'23:59',category:$('category').value,priority:$('priority').value,notes:$('notes').value.trim(),done:!!items.find(x=>x.id===id)?.done};if(!obj.title||!obj.date)return; if(id)items=items.map(x=>x.id===id?obj:x);else items.push(obj);save();render();$('deadlineDialog').close();toast(id?'Deadline updated':'Deadline added');};
+ $('deadlineList').onclick=e=>{const b=e.target.closest('button[data-action]');if(!b)return;const x=items.find(v=>v.id===b.dataset.id);if(!x)return;switch(b.dataset.action){case'toggle':x.done=!x.done;toast(x.done?'Marked as completed':'Deadline restored');break;case'edit':openModal(x);return;case'delete':if(!confirm(`Delete "${x.title}"?`))return;items=items.filter(v=>v.id!==x.id);toast('Deadline deleted');break;}save();render();};
+ document.querySelectorAll('[data-filter]').forEach(b=>b.onclick=()=>{filter=b.dataset.filter;document.querySelectorAll('[data-filter]').forEach(v=>v.classList.toggle('active',v===b));render()});
+ $('searchInput').oninput=render;
+ $('exportBtn').onclick=()=>{const blob=new Blob([JSON.stringify(items,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='deadlinex-backup.json';a.click();URL.revokeObjectURL(url);toast('Backup exported');};
+ $('themeBtn').onclick=()=>{document.body.classList.toggle('light');const light=document.body.classList.contains('light');document.body.style.background=light?'linear-gradient(145deg,#e8edff,#d8f5f1)':'';document.body.style.color=light?'#182039':'';document.querySelectorAll('.glass').forEach(el=>{el.style.background=light?'rgba(255,255,255,.62)':'';el.style.borderColor=light?'#ffffffaa':'';el.style.color=light?'#182039':''});toast(light?'Light appearance':'Dark appearance');};
+ $('todayDate').textContent=new Date().toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric'});
+ render();setInterval(render,30000);
+})();
+</script>
+</body>
+</html>
