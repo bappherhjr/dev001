@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TheDev001 APK Hub – Android apps by an independent developer</title>
+<meta name="description" content="Download Android apps built by TheDev001. Browse, search and install independent, privacy-minded APKs with changelogs and full details.">
+<meta name="theme-color" content="#FFF8F2">
+<meta property="og:type" content="website">
+<meta property="og:title" content="TheDev001 APK Hub">
+<meta property="og:description" content="Your next favourite app starts here. Android apps by TheDev001.">
+<meta property="og:image" content="icons/og.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23F2A6BD'/%3E%3Ctext x='32' y='43' font-size='30' font-family='Georgia,serif' font-weight='700' text-anchor='middle' fill='%23fff'%3ED%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#FFF8F2;--pink:#F2A6BD;--pink2:#F8D5E0;--ink:#29232A;--mute:#7d7078;
+  --glass:rgba(255,255,255,.62);--glass-b:rgba(255,255,255,.85);--line:rgba(41,35,42,.09);
+  --deep:#c9577f;--r:22px;--shadow:0 8px 28px rgba(160,90,115,.12);
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font:16px/1.55 var(--sans);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(60vmax 40vmax at 90% -5%,var(--pink2),transparent 70%),radial-gradient(50vmax 40vmax at -10% 35%,rgba(242,166,189,.28),transparent 70%)}
+img{max-width:100%;display:block}
+a{color:inherit}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--deep);outline-offset:2px;border-radius:10px}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+section{padding:64px 0}
+h1,h2,h3{font-family:var(--serif);line-height:1.12;letter-spacing:-.01em}
+h2{font-size:clamp(1.7rem,4vw,2.4rem);margin-bottom:8px}
+.sub{color:var(--mute);max-width:56ch}
+.glass{background:var(--glass);border:1px solid var(--glass-b);box-shadow:var(--shadow);border-radius:var(--r)}
+@supports (backdrop-filter:blur(1px)){.glass,.nav{backdrop-filter:blur(12px) saturate(140%);-webkit-backdrop-filter:blur(12px) saturate(140%)}}
+
+/* nav */
+.nav{position:sticky;top:10px;z-index:50;margin:10px auto 0;width:min(1120px,100% - 24px);border-radius:999px;background:rgba(255,248,242,.78);border:1px solid var(--glass-b);box-shadow:var(--shadow)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;padding:8px 10px 8px 20px;gap:12px}
+.logo{font-family:var(--serif);font-weight:700;font-size:1.2rem;text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo i{width:26px;height:26px;border-radius:9px;background:linear-gradient(135deg,var(--pink),var(--pink2));display:inline-block}
+.logo small{font:600 .75rem var(--sans);color:var(--deep);background:var(--pink2);padding:2px 8px;border-radius:99px}
+.links{display:flex;gap:4px;list-style:none;padding:0}
+.links a{display:block;padding:8px 16px;border-radius:99px;text-decoration:none;font-weight:500;font-size:.95rem;transition:background .2s}
+.links a:hover,.links a.on{background:var(--pink2)}
+.burger{display:none;width:44px;height:44px;border:0;border-radius:50%;background:var(--pink2);cursor:pointer}
+.burger span,.burger span::before{display:block;width:18px;height:2px;background:var(--ink);margin:auto;position:relative;border-radius:2px}
+.burger span::before{content:"";position:absolute;top:-6px;left:0;box-shadow:0 12px 0 var(--ink)}
+
+/* hero */
+.hero{padding:56px 0 40px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center}
+.hero h1{font-size:clamp(2.3rem,6.2vw,4.2rem);margin-bottom:16px;animation:rise .7s both}
+.hero p.lead{font-size:1.1rem;color:var(--mute);max-width:46ch;margin-bottom:26px;animation:rise .7s .1s both}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}}
+.search{display:flex;align-items:center;gap:10px;padding:6px 8px 6px 18px;border-radius:999px;max-width:480px;animation:rise .7s .2s both}
+.search svg{flex:none;width:20px;height:20px;stroke:var(--mute);fill:none;stroke-width:2}
+.search input{flex:1;min-width:0;border:0;background:none;padding:10px 0;outline:0}
+.search:focus-within{box-shadow:0 0 0 3px rgba(201,87,127,.35),var(--shadow)}
+.spot{padding:22px;display:flex;flex-direction:column;gap:14px;min-height:260px;animation:rise .7s .3s both}
+.spot .tag{font-size:.8rem;font-weight:600;color:var(--deep)}
+.spot h3{font-size:1.6rem}
+.spot p{color:var(--mute);font-size:.95rem}
+
+/* buttons / badges */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;border-radius:99px;border:1px solid transparent;font-weight:600;font-size:.95rem;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .2s,background .2s}
+.btn.pri{background:linear-gradient(135deg,var(--pink),#ee93b0);color:#3a1f2b;box-shadow:0 6px 16px rgba(238,147,176,.45)}
+.btn.pri:hover{transform:translateY(-1px);box-shadow:0 9px 20px rgba(238,147,176,.55)}
+.btn.sec{background:var(--glass-b);border-color:var(--line)}
+.btn.sec:hover{background:var(--pink2)}
+.btn:active{transform:scale(.97)}
+.badge{display:inline-block;font-size:.75rem;font-weight:600;padding:3px 10px;border-radius:99px;background:var(--pink2);color:#7a3550}
+.badge.v{background:#fff;border:1px solid var(--line);color:var(--mute)}
+.icon{width:64px;height:64px;border-radius:18px;flex:none;overflow:hidden;background:linear-gradient(135deg,var(--pink),var(--pink2));display:grid;place-items:center;font:700 1.6rem var(--serif);color:#fff;box-shadow:0 4px 12px rgba(160,90,115,.2)}
+.icon img{width:100%;height:100%;object-fit:cover}
+.icon.lg{width:88px;height:88px;border-radius:24px;font-size:2.2rem}
+
+/* grids and cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:20px;margin-top:28px}
+.card{padding:20px;display:flex;flex-direction:column;gap:14px;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(160,90,115,.18)}
+.card-top{display:flex;gap:14px;align-items:center}
+.card h3{font-size:1.25rem}
+.badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.card p{color:var(--mute);font-size:.95rem;flex:1}
+.actions{display:flex;gap:10px}
+.actions .btn{flex:1;padding:0 12px}
+
+/* toolbar */
+.tools{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-top:24px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{min-height:40px;padding:0 16px;border-radius:99px;border:1px solid var(--line);background:var(--glass-b);cursor:pointer;font-size:.9rem;font-weight:500;transition:background .2s}
+.chip:hover{background:var(--pink2)}
+.chip[aria-pressed=true]{background:var(--pink);border-color:var(--pink);color:#3a1f2b;font-weight:600}
+.sort{display:flex;align-items:center;gap:8px;font-size:.9rem;color:var(--mute)}
+.sort select{min-height:40px;padding:0 12px;border-radius:99px;border:1px solid var(--line);background:var(--glass-b)}
+.count{color:var(--mute);font-size:.9rem;margin-top:14px}
+
+/* states */
+.state{text-align:center;padding:48px 24px;margin-top:28px}
+.state h3{font-size:1.4rem;margin-bottom:8px}
+.state p{color:var(--mute);margin:0 auto 18px;max-width:42ch}
+.skel{height:190px;border-radius:var(--r);background:linear-gradient(90deg,rgba(248,213,224,.4),rgba(255,255,255,.7),rgba(248,213,224,.4));background-size:200% 100%;animation:sh 1.6s linear infinite}
+@keyframes sh{to{background-position:-200% 0}}
+[hidden]{display:none!important}
+
+/* dialog */
+dialog{border:0;padding:0;background:none;width:min(680px,100% - 24px);max-height:calc(100dvh - 24px);margin:auto;color:var(--ink);overflow:visible}
+dialog::backdrop{background:rgba(41,35,42,.45)}
+.sheet{background:#fffaf6;border:1px solid var(--glass-b);border-radius:28px;box-shadow:0 24px 70px rgba(60,30,45,.3);max-height:calc(100dvh - 24px);overflow:auto;padding:26px;position:relative;animation:pop .22s both}
+@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.98)}}
+.x{position:absolute;top:14px;right:14px;width:44px;height:44px;border-radius:50%;border:0;background:var(--pink2);cursor:pointer;font-size:1.3rem;line-height:1}
+.d-head{display:flex;gap:18px;align-items:center;padding-right:44px;margin-bottom:18px}
+.d-head h2{margin:0;font-size:1.9rem}
+.sheet h4{font-family:var(--serif);font-size:1.15rem;margin:22px 0 8px}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.meta div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px 14px}
+.meta dt{font-size:.78rem;color:var(--mute)}
+.meta dd{margin:0;font-weight:600;font-size:.92rem;overflow-wrap:anywhere}
+.list{padding-left:20px;display:grid;gap:4px}
+.list li::marker{color:var(--pink)}
+.shots{display:flex;gap:12px;overflow-x:auto;padding-bottom:8px;scroll-snap-type:x mandatory}
+.shots img{height:300px;width:auto;border-radius:16px;border:1px solid var(--line);scroll-snap-align:start;background:var(--pink2);min-width:140px}
+.sheet .dl{margin-top:24px;width:100%}
+
+/* about + footer */
+.about{padding:44px;text-align:center}
+.about h2{font-size:clamp(1.8rem,4.5vw,2.8rem)}
+.about p{margin:12px auto 0;max-width:58ch;color:var(--mute)}
+footer{padding:36px 0 44px;border-top:1px solid var(--line);margin-top:24px}
+.f{display:flex;flex-wrap:wrap;gap:16px 28px;justify-content:space-between;align-items:center}
+.f nav{display:flex;gap:20px;flex-wrap:wrap}
+.f a{text-decoration:none;color:var(--mute);font-size:.92rem}
+.f a:hover{color:var(--deep)}
+.copy{color:var(--mute);font-size:.88rem;margin-top:14px}
+
+@media(max-width:820px){
+  .hero-grid{grid-template-columns:1fr}
+  .burger{display:block}
+  .links{display:none;position:absolute;top:calc(100% + 8px);left:0;right:0;flex-direction:column;padding:10px;border-radius:24px;background:rgba(255,248,242,.96);border:1px solid var(--glass-b);box-shadow:var(--shadow)}
+  .links.open{display:flex}
+  .links a{padding:14px 18px}
+  section{padding:44px 0}
+  .about{padding:30px 20px}
+  .sheet{padding:20px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+<header class="nav" id="top">
+  <div class="nav-in">
+    <a class="logo" href="#top" aria-label="TheDev001 APK Hub home"><i></i>TheDev001 <small>APK Hub</small></a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+    <ul class="links" id="menu">
+      <li><a href="#top">Home</a></li>
+      <li><a href="#library">Applications</a></li>
+      <li><a href="#categories">Categories</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Your next favourite app starts here.</h1>
+        <p class="lead">Private, polished Android applications from TheDev001, an independent developer. Browse, read the changelog and install directly.</p>
+        <form class="search glass" role="search" id="heroSearch" onsubmit="return false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="q" type="search" placeholder="Search apps by name or description" aria-label="Search applications" autocomplete="off">
+        </form>
+      </div>
+      <aside class="spot glass" id="spot" aria-live="polite">
+        <div class="skel" style="height:100%;min-height:220px"></div>
+      </aside>
+    </div>
+  </section>
+
+  <section id="featured" hidden>
+    <div class="wrap">
+      <h2>Featured applications</h2>
+      <p class="sub">Hand-picked releases worth installing first.</p>
+      <div class="grid" id="featGrid"></div>
+    </div>
+  </section>
+
+  <section id="library">
+    <div class="wrap">
+      <h2>Application library</h2>
+      <p class="sub">Every app in the hub, all in one place.</p>
+      <div class="tools" id="categories">
+        <div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
+        <label class="sort">Sort
+          <select id="sort">
+            <option value="updated">Recently updated</option>
+            <option value="name">Name A to Z</option>
+          </select>
+        </label>
+      </div>
+      <p class="count" id="count" aria-live="polite"></p>
+      <div class="grid" id="grid" aria-busy="true">
+        <div class="skel"></div><div class="skel"></div><div class="skel"></div>
+      </div>
+      <div class="state glass" id="empty" hidden>
+        <h3>No apps match your search</h3>
+        <p>Try a different word or clear the category filter to see everything.</p>
+        <button class="btn sec" id="reset" type="button">Clear search and filters</button>
+      </div>
+      <div class="state glass" id="error" hidden>
+        <h3>The app list could not load</h3>
+        <p id="errMsg">Check your connection and try again. If you run this page from a local file, serve it through a web server so apps.json can be read.</p>
+        <button class="btn pri" id="retry" type="button">Try again</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="about glass">
+        <h2>Built with curiosity. Designed with purpose.</h2>
+        <p>TheDev001 is an independent Android application developer. Every app here is made by one person who cares about privacy, speed and a calm, beautiful interface. No ads, no tracking, just software made to be used.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f">
+      <a class="logo" href="#top"><i></i>TheDev001</a>
+      <nav aria-label="Footer">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="mailto:contact@thedev001.name.ng">Contact</a>
+        <a href="#top">Back to top</a>
+      </nav>
+    </div>
+    <p class="copy">&copy; <span id="year">2026</span> TheDev001. All rights reserved.</p>
+  </div>
+</footer>
+
+<dialog id="dlg" aria-labelledby="dName">
+  <div class="sheet" id="sheet"></div>
+</dialog>
+
+<script>
+(() => {
+  'use strict';
+  const DATA_URL = './apps.json';
+  const $ = id => document.getElementById(id);
+  const state = { apps: [], q: '', cat: 'All', sort: 'updated' };
+
+  /* ---------- helpers ---------- */
+  const el = (tag, props = {}, kids = []) => {
+    const n = document.createElement(tag);
+    for (const [k, v] of Object.entries(props)) {
+      if (v == null || v === false) continue;
+      if (k === 'class') n.className = v;
+      else if (k === 'text') n.textContent = v;
+      else if (k.startsWith('on')) n.addEventListener(k.slice(2), v);
+      else n.setAttribute(k, v === true ? '' : v);
+    }
+    [].concat(kids).forEach(c => c != null && n.append(c));
+    return n;
+  };
+  const str = v => (typeof v === 'string' ? v.trim() : '');
+  const list = v => (Array.isArray(v) ? v.map(str).filter(Boolean) : []);
+  const safeUrl = u => {
+    u = str(u);
+    if (!u || /^\s*(javascript|data|vbscript):/i.test(u)) return '';
+    return u;
+  };
+  const fmtDate = s => {
+    const d = new Date(s);
+    return isNaN(d) ? (s || 'Unknown') : d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+  };
+
+  function validate(raw) {
+    if (!Array.isArray(raw)) throw new Error('apps.json must contain a list of apps.');
+    const seen = new Set();
+    return raw.reduce((out, a) => {
+      if (!a || typeof a !== 'object') return out;
+      const id = str(a.id), name = str(a.name), download = safeUrl(a.download);
+      if (!id || !name || !download || seen.has(id)) return out;
+      seen.add(id);
+      out.push({
+        id, name, download,
+        package: str(a.package),
+        description: str(a.description),
+        fullDescription: str(a.fullDescription) || str(a.description),
+        icon: safeUrl(a.icon),
+        version: str(a.version) || '1.0.0',
+        versionCode: a.versionCode,
+        size: str(a.size) || 'Unknown',
+        android: str(a.android) || 'Not specified',
+        category: str(a.category) || 'Other',
+        updated: str(a.updated),
+        featured: a.featured === true,
+        screenshots: list(a.screenshots).map(safeUrl).filter(Boolean),
+        features: list(a.features),
+        changelog: list(a.changelog)
+      });
+      return out;
+    }, []);
+  }
+
+  /* ---------- UI parts ---------- */
+  function iconEl(app, big) {
+    const box = el('span', { class: 'icon' + (big ? ' lg' : ''), 'aria-hidden': 'true' });
+    const letter = app.name.charAt(0).toUpperCase();
+    box.textContent = letter;
+    if (app.icon) {
+      const img = el('img', { src: app.icon, alt: '', loading: 'lazy', decoding: 'async', width: 88, height: 88 });
+      img.addEventListener('load', () => { box.textContent = ''; box.append(img); });
+      img.addEventListener('error', () => img.remove());
+      if (big) img.loading = 'eager';
+      // keep letter until load succeeds
+      const probe = new Image();
+      probe.onload = () => { box.textContent = ''; box.append(img); };
+      probe.src = app.icon;
+    }
+    return box;
+  }
+  const dlLink = (app, cls) => el('a', {
+    class: 'btn pri' + (cls ? ' ' + cls : ''),
+    href: app.download, download: '', rel: 'noopener',
+    'aria-label': `Download ${app.name} ${app.version}`, text: 'Download'
+  });
+
+  function card(app) {
+    return el('article', { class: 'card glass' }, [
+      el('div', { class: 'card-top' }, [
+        iconEl(app),
+        el('div', {}, [
+          el('h3', { text: app.name }),
+          el('div', { class: 'badges' }, [
+            el('span', { class: 'badge v', text: 'v' + app.version }),
+            el('span', { class: 'badge', text: app.category })
+          ])
+        ])
+      ]),
+      el('p', { text: app.description || 'No description yet.' }),
+      el('div', { class: 'actions' }, [
+        dlLink(app),
+        el('button', { class: 'btn sec', type: 'button', 'aria-label': `Details for ${app.name}`, onclick: e => openDetails(app, e.currentTarget), text: 'Details' })
+      ])
+    ]);
+  }
+
+  function renderSpot() {
+    const app = state.apps.find(a => a.featured) || state.apps[0];
+    const box = $('spot');
+    box.replaceChildren();
+    if (!app) { box.append(el('p', { class: 'sub', text: 'Apps will appear here once they are published.' })); return; }
+    box.append(
+      el('span', { class: 'tag', text: app.featured ? 'Featured app' : 'Latest app' }),
+      el('div', { class: 'card-top' }, [iconEl(app, true), el('div', {}, [el('h3', { text: app.name }), el('div', { class: 'badges' }, [el('span', { class: 'badge v', text: 'v' + app.version }), el('span', { class: 'badge', text: app.category })])])]),
+      el('p', { text: app.description }),
+      el('div', { class: 'actions' }, [dlLink(app), el('button', { class: 'btn sec', type: 'button', onclick: e => openDetails(app, e.currentTarget), text: 'Details' })])
+    );
+  }
+
+  function renderFeatured() {
+    const f = state.apps.filter(a => a.featured);
+    $('featured').hidden = !f.length;
+    $('featGrid').replaceChildren(...f.map(card));
+  }
+
+  function renderChips() {
+    const cats = ['All', ...new Set(state.apps.map(a => a.category))];
+    $('chips').replaceChildren(...cats.map(c => el('button', {
+      class: 'chip', type: 'button', 'aria-pressed': String(c === state.cat), text: c,
+      onclick: () => { state.cat = c; renderChips(); renderLibrary(); }
+    })));
+  }
+
+  function renderLibrary() {
+    const q = state.q.toLowerCase();
+    let items = state.apps.filter(a =>
+      (state.cat === 'All' || a.category === state.cat) &&
+      (!q || a.name.toLowerCase().includes(q) || a.description.toLowerCase().includes(q) || a.fullDescription.toLowerCase().includes(q)));
+    items.sort(state.sort === 'name'
+      ? (a, b) => a.name.localeCompare(b.name)
+      : (a, b) => (Date.parse(b.updated) || 0) - (Date.parse(a.updated) || 0));
+    const grid = $('grid');
+    grid.setAttribute('aria-busy', 'false');
+    grid.replaceChildren(...items.map(card));
+    $('empty').hidden = items.length > 0;
+    grid.hidden = items.length === 0;
+    $('count').textContent = items.length ? `${items.length} of ${state.apps.length} app${state.apps.length === 1 ? '' : 's'}` : '';
+  }
+
+  /* ---------- details dialog ---------- */
+  const dlg = $('dlg');
+  let opener = null;
+  function section(title, nodes) { return nodes ? [el('h4', { text: title }), nodes] : []; }
+
+  function openDetails(app, trigger) {
+    opener = trigger;
+    const meta = [['Version', `${app.version}${app.versionCode != null ? ' (' + app.versionCode + ')' : ''}`], ['Package', app.package || 'Not specified'], ['APK size', app.size], ['Requires', app.android], ['Last updated', fmtDate(app.updated)], ['Category', app.category]];
+    const sheet = $('sheet');
+    sheet.replaceChildren(
+      el('button', { class: 'x', type: 'button', 'aria-label': 'Close details', onclick: () => dlg.close(), text: '\u00d7' }),
+      el('div', { class: 'd-head' }, [iconEl(app, true), el('div', {}, [el('h2', { id: 'dName', text: app.name }), el('div', { class: 'badges' }, [el('span', { class: 'badge v', text: 'v' + app.version }), el('span', { class: 'badge', text: app.category })])])]),
+      el('p', { text: app.fullDescription }),
+      ...section('App information', el('dl', { class: 'meta' }, meta.map(([k, v]) => el('div', {}, [el('dt', { text: k }), el('dd', { text: v })])))),
+      ...section('Features', app.features.length ? el('ul', { class: 'list' }, app.features.map(f => el('li', { text: f }))) : null),
+      ...section('Screenshots', app.screenshots.length ? el('div', { class: 'shots' }, app.screenshots.map((s, i) => {
+        const img = el('img', { src: s, alt: `${app.name} screenshot ${i + 1}`, loading: 'lazy', decoding: 'async' });
+        img.addEventListener('error', () => img.remove());
+        return img;
+      })) : null),
+      ...section('Changelog', app.changelog.length ? el('ul', { class: 'list' }, app.changelog.map(c => el('li', { text: c }))) : null),
+      dlLink(app, 'dl')
+    );
+    if (!dlg.open) dlg.showModal();
+    sheet.scrollTop = 0;
+  }
+  dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener('close', () => { if (opener && opener.isConnected) opener.focus(); });
+
+  /* ---------- loading ---------- */
+  async function load() {
+    $('error').hidden = true;
+    $('empty').hidden = true;
+    $('grid').hidden = false;
+    $('grid').setAttribute('aria-busy', 'true');
+    $('grid').replaceChildren(el('div', { class: 'skel' }), el('div', { class: 'skel' }), el('div', { class: 'skel' }));
+    try {
+      const res = await fetch(DATA_URL, { cache: 'no-cache' });
+      if (!res.ok) throw new Error(`apps.json returned status ${res.status}.`);
+      let json;
+      try { json = await res.json(); } catch { throw new Error('apps.json is not valid JSON.'); }
+      state.apps = validate(json);
+      renderSpot(); renderFeatured(); renderChips(); renderLibrary();
+      if (!state.apps.length) { $('grid').hidden = true; $('empty').hidden = false; $('empty').querySelector('h3').textContent = 'No apps published yet'; $('empty').querySelector('p').textContent = 'Check back soon for new releases.'; $('reset').hidden = true; }
+    } catch (err) {
+      $('grid').hidden = true;
+      $('count').textContent = '';
+      $('spot').replaceChildren(el('p', { class: 'sub', text: 'Featured app unavailable right now.' }));
+      $('errMsg').textContent = (err && err.message ? err.message + ' ' : '') + 'Check your connection and try again.';
+      $('error').hidden = false;
+    }
+  }
+
+  /* ---------- events ---------- */
+  let t;
+  $('q').addEventListener('input', e => {
+    clearTimeout(t);
+    t = setTimeout(() => { state.q = e.target.value.trim(); renderLibrary(); }, 120);
+  });
+  $('q').addEventListener('keydown', e => { if (e.key === 'Enter') $('library').scrollIntoView(); });
+  $('sort').addEventListener('change', e => { state.sort = e.target.value; renderLibrary(); });
+  $('reset').addEventListener('click', () => { state.q = ''; state.cat = 'All'; $('q').value = ''; renderChips(); renderLibrary(); });
+  $('retry').addEventListener('click', load);
+
+  const burger = $('burger'), menu = $('menu');
+  const setMenu = open => { menu.classList.toggle('open', open); burger.setAttribute('aria-expanded', String(open)); };
+  burger.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+  menu.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+
+  $('year').textContent = new Date().getFullYear();
+  load();
+})();
+</script>
+</body>
+</html>

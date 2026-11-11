@@ -1,0 +1,143 @@
+[
+  {
+    "id": "velum",
+    "name": "Velum",
+    "package": "com.thedev.velum",
+    "description": "A premium personal diary. Your life, in your words.",
+    "fullDescription": "Velum is a private and elegant space for your thoughts. Write unlimited entries with rich text, track your mood, revisit memories and build a daily writing streak. Everything stays encrypted on your device, with app lock, PIN and optional face unlock for quick access. No ads, no analytics and no unnecessary permissions.",
+    "icon": "icons/velum.png",
+    "version": "1.0.0",
+    "versionCode": 1,
+    "size": "14 MB",
+    "android": "Android 8.0+",
+    "category": "Productivity",
+    "updated": "2026-11-11",
+    "featured": true,
+    "download": "files/velum.apk",
+    "screenshots": [
+      "screenshots/velum/home.png",
+      "screenshots/velum/write.png",
+      "screenshots/velum/calendar.png",
+      "screenshots/velum/memories.png"
+    ],
+    "features": [
+      "Unlimited diary entries with rich text and autosave",
+      "Mood tracking, favourites and powerful search",
+      "Calendar view, streaks and writing statistics",
+      "Daily prompts, templates and Memories",
+      "Velum Face ID as a quick unlock, with PIN fallback",
+      "Fingerprint and device biometric support",
+      "Encrypted local database and secure backups",
+      "Liquid OS glass interface with a custom gradient engine",
+      "Dark, AMOLED and light themes"
+    ],
+    "changelog": [
+      "Initial release",
+      "Added Velum Face ID with PIN fallback",
+      "Added Liquid Glass, Aurora and Midnight themes",
+      "Added encrypted backup and restore"
+    ]
+  },
+  {
+    "id": "qr-studio",
+    "name": "QR Studio",
+    "package": "com.thedev.qrstudio",
+    "description": "Fast offline QR and barcode scanner with a built-in generator.",
+    "fullDescription": "QR Studio scans QR codes and barcodes instantly using an on-device model, so nothing leaves your phone. Create codes for links, text, Wi-Fi, email, phone numbers and contacts, then save, search and favourite everything in your history. Designed to run smoothly even on phones with 3 GB of RAM.",
+    "icon": "icons/qr-studio.png",
+    "version": "1.0.0",
+    "versionCode": 1,
+    "size": "18 MB",
+    "android": "Android 8.0+",
+    "category": "Tools",
+    "updated": "2026-11-02",
+    "featured": true,
+    "download": "files/qr-studio.apk",
+    "screenshots": [
+      "screenshots/qr-studio/home.png",
+      "screenshots/qr-studio/scanner.png",
+      "screenshots/qr-studio/generator.png",
+      "screenshots/qr-studio/history.png"
+    ],
+    "features": [
+      "Instant offline QR and barcode scanning",
+      "Generate codes for URL, text, Wi-Fi, email, phone and contact",
+      "Scan history with search, favourites and delete",
+      "No account, no ads and no internet required",
+      "Liquid Gradient Glass interface"
+    ],
+    "changelog": [
+      "Initial release",
+      "Added scanner, generator and history",
+      "Added settings and haptic feedback options"
+    ]
+  },
+  {
+    "id": "vaultnote",
+    "name": "VaultNote",
+    "package": "com.thedev.vaultnote",
+    "description": "Encrypted offline notes. Your notes. Your privacy.",
+    "fullDescription": "VaultNote keeps your notes encrypted with AES-256-GCM using keys held in the Android Keystore. Organise notes in coloured folders, add tags, lock individual notes and protect the whole app with a PIN or biometrics. Everything works fully offline, with no analytics, ads or registration.",
+    "icon": "icons/vaultnote.png",
+    "version": "2.0.0",
+    "versionCode": 2,
+    "size": "11 MB",
+    "android": "Android 8.0+",
+    "category": "Productivity",
+    "updated": "2026-11-05",
+    "featured": false,
+    "download": "files/vaultnote-2.0.apk",
+    "screenshots": [
+      "screenshots/vaultnote/home.png",
+      "screenshots/vaultnote/editor.png",
+      "screenshots/vaultnote/folders.png"
+    ],
+    "features": [
+      "AES-256-GCM encrypted notes",
+      "PIN and biometric app lock with per-note locking",
+      "Folders, tags and folder colours",
+      "Markdown editor with undo and redo",
+      "Local search with recent searches",
+      "Encrypted backup and restore",
+      "AMOLED, light and system themes"
+    ],
+    "changelog": [
+      "2.0.0: Rebuilt in Kotlin with a new black and white design",
+      "2.0.0: Added biometric unlock, tags, templates and per-note locking",
+      "2.0.0: Notes from version 1 migrate automatically",
+      "1.0.0: Initial release"
+    ]
+  },
+  {
+    "id": "deadlinex",
+    "name": "DeadlineX",
+    "package": "com.thedev001.deadlinex",
+    "description": "A calm deadline tracker with reminders that actually arrive.",
+    "fullDescription": "DeadlineX helps you stay ahead of every due date. Add deadlines, see what is coming next and get local reminders 24 hours, 1 hour and 15 minutes before, plus at the deadline itself. Reminders are restored after a restart and work without an internet connection. Built to stay light on low-end devices.",
+    "icon": "icons/deadlinex.png",
+    "version": "2.0.0",
+    "versionCode": 2,
+    "size": "6 MB",
+    "android": "Android 8.0+",
+    "category": "Productivity",
+    "updated": "2026-10-30",
+    "featured": false,
+    "download": "files/deadlinex-2.0.apk",
+    "screenshots": [
+      "screenshots/deadlinex/home.png",
+      "screenshots/deadlinex/add.png"
+    ],
+    "features": [
+      "Reminders at 24 hours, 1 hour, 15 minutes and at the deadline",
+      "Reminders restored after device restart",
+      "Works fully offline with data stored on your device",
+      "Light and dark Liquid Glass interface",
+      "Optimised for low-end Android devices"
+    ],
+    "changelog": [
+      "2.0.0: Native Android app with reliable local notifications",
+      "2.0.0: New Liquid Glass design and performance improvements",
+      "1.0.0: Initial web version"
+    ]
+  }
+]
